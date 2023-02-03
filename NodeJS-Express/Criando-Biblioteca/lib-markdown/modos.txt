@@ -1,0 +1,21 @@
+function pegaArquivo(caminhoDoArquivo){
+
+    const encoding = 'utf-8';
+   fs.promises.readFile(caminhoDoArquivo, encoding)
+    .then((texto) => console.log(chalk.blue((texto))))
+    .catch((err) => trataErroArquivo(err))
+
+    //.then ~ método callback => parâmetro é o produto da promise
+    //.catch ~ método para pegar um erro caso ocorra => parâmetro é o erro
+}
+
+
+function pegaArquivo(caminhoDoArquivo){
+     const encoding = 'utf-8';
+     fs.readFile(caminhoDoArquivo, encoding, function(err,texto){
+         if(err){
+             trataErroArquivo(err)
+         }
+         console.log(chalk.blue((texto)))
+     } )
+ }
